@@ -13,7 +13,7 @@ const Whiteboard = ({ roomId, userCount: initialUserCount, drawingData }) => {
 
   useEffect(() => {
     // Connect directly to backend for Socket.io
-    const socket = io("http://localhost:5000");
+    const socket = io("https://collaborative-whiteboard-fbx5.onrender.com");
     socketRef.current = socket;
     socket.emit("join-room", roomId);
     socket.on("user-count", setUserCount);

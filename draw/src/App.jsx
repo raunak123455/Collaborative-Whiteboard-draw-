@@ -14,11 +14,14 @@ function App() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:5000/api/rooms/join", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ roomId: code }),
-      });
+      const res = await fetch(
+        "https://collaborative-whiteboard-fbx5.onrender.com/api/rooms/join",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ roomId: code }),
+        }
+      );
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to join room");
       setRoom(data);
